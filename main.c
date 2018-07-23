@@ -4,23 +4,33 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include "func.h"
 
-int main(argc, char *argv[]){
+int main(int argc, char *argv[]){
 
-	int *sum = 0;
-	
-	for ( int p = 1; p <= argc; p++ ){
+	int *sum_ptr;
+	int sum = 0;
+	sum_ptr = &sum;
+	int isInt = 0;
+
+	for ( int p = 1; p < argc; p++ ){
 		
 		for ( int i = 0; i < strlen( argv[p] ); i++ ){	
-			if (!isdigit(argv[p][i])) {
+			if (isdigit(argv[p][i])) {
+				isInt = 1;
+			}
+
+			else {
+				isInt = 0;
 				break;
 			}
-			else {
-				//sumNumbs(*sum, argv[p]);
-			}
+		}
+		if ( isInt == 1 ) {
+				sumNumbers(sum_ptr, argv[p]);
 		}
 	}
-
+	printf ( "%i\n", sum);
 
 return 0;
 }
