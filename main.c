@@ -1,4 +1,5 @@
 //David Lindsey
+//
 //CS 2750 PA5
 //22-07-18
 
@@ -13,6 +14,8 @@ int main(int argc, char *argv[]){
 	int sum = 0;
 	sum_ptr = &sum;
 	int isInt = 0;
+	char *string_list[200];
+	int new_arr_counter = 0;
 
 	for ( int p = 1; p < argc; p++ ){
 		
@@ -27,10 +30,23 @@ int main(int argc, char *argv[]){
 			}
 		}
 		if ( isInt == 1 ) {
-				sumNumbers(sum_ptr, argv[p]);
+			sumNumbers(sum_ptr, argv[p]);
+		}
+		else {
+			string_list[new_arr_counter] = argv[p];
+			new_arr_counter++;
 		}
 	}
 	printf ( "%i\n", sum);
+
+	for ( int i = 0; i < new_arr_counter; i++) {
+		for ( int k = (i + 1); k < new_arr_counter; k++ ){
+			if ( strstr( string_list[k], string_list[i] ) ){
+				printf("%s is a substring of %s\n", string_list[i], string_list[k]);
+					}
+		}
+	
+	}
 
 return 0;
 }
