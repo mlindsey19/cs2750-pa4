@@ -2,8 +2,8 @@
 //CS 2750 PA5
 //22-07-18
 
-#include <stdio.c>
-#include <stdlib.c>
+#include <stdio.h>
+#include <stdlib.h>
 
 int main(argc, char *argv[]){
 
