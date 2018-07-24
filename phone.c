@@ -5,19 +5,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "phone_fmt.h"
+#include <string.h>
 
 int main(){
 	char nubmer_w_extras[200];
-	
+
 	printf("Enter 10 digit Phone number:\n");
 	fgets(nubmer_w_extras, 200, stdin);
 
-	printf("input: %s\n", nubmer_w_extras);
+	printf("input: %s", nubmer_w_extras);
 
-	char *number = phone_fmt(nubmer_w_extras);
-
-	printf("Output: %s", number );
-	
+	phone_fmt( nubmer_w_extras );
 
 
 return 0; 
